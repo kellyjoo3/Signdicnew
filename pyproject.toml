@@ -1,7 +1,20 @@
-[project]
+[tool.poetry]
 name = "python-template"
 version = "0.1.0"
 description = ""
 authors = ["Your Name <you@example.com>"]
-requires-python = ">=3.11"
-dependencies = []
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+Flask = "*"
+gunicorn = "*"
+thefuzz = "*" 
+python-levenshtein = "*"
+
+[tool.poetry.dev-dependencies]
+debugpy = "^1.6.2"
+replit-python-lsp-server = {extras = ["yapf", "flake8"], version = "^1.1.2"}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

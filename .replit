@@ -3,6 +3,7 @@ modules = ["python-3.11"]
 
 [nix]
 channel = "stable-24_05"
+packages = ["gdb"]
 
 [unitTest]
 language = "python3"
@@ -11,5 +12,13 @@ language = "python3"
 requiredFiles = [".replit", "replit.nix"]
 
 [deployment]
-run = ["python3", "main.py"]
+run = "gunicorn --bind 0.0.0.0:8080 main:app"
 deploymentTarget = "cloudrun"
+
+
+[[ports]]
+localPort = 8080
+externalPort = 80
+
+[agent]
+expertMode = true
