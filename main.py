@@ -114,5 +114,9 @@ def robots():
     return "User-agent: *\nAllow: /"
 
 
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080)
+    # Render가 주는 PORT 환경변수를 가져오고, 없으면 5000번 사용
+    port = int(os.environ.get("PORT", 5000))
+    # 0.0.0.0으로 외부 접속 허용, 동적 포트 할당
+    app.run(host="0.0.0.0", port=port)
